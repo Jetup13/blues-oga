@@ -454,10 +454,19 @@ static void handle_controllerbutton(int button, bool pressed, struct input_t *in
 	case SDL_CONTROLLER_BUTTON_B:
 		input->jump = pressed;
 		break;
+	case SDL_CONTROLLER_BUTTON_X:
+		input->digit1 = pressed;
+		break;
+	case SDL_CONTROLLER_BUTTON_Y:
+		input->digit2 = pressed;
+		break;
 	case SDL_CONTROLLER_BUTTON_START:
 		if (!pressed) {
 			*paused = !*paused;
 		}
+		break;
+	case SDL_CONTROLLER_BUTTON_GUIDE:
+		input->quit = pressed;
 		break;
 	case SDL_CONTROLLER_BUTTON_DPAD_UP:
 		if (pressed) {
